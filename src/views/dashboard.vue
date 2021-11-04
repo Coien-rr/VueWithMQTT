@@ -1,9 +1,14 @@
 <script setup>
   import Navbar from '@/components/navbar.vue';
+  import Asidebar from '../components/asidebar.vue';
 </script>
 
 <template>
-  <Navbar/>
+  <div class="conainer">
+    <Navbar/>
+    <Asidebar/>
+  </div>
 </template>
 
-<style></style>
+<style>
+</style>

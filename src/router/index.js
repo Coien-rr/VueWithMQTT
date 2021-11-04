@@ -4,7 +4,12 @@ import DashBoard from '@/views/dashboard.vue';
 
 const routes = [
   {
-    path:'/',
+    path: '/',
+    redirect: '/dashboard',
+  },
+
+  {
+    path:'/home',
     component: Home
   },
   {

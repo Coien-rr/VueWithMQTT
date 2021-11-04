@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<nav>
+<header>
   <div class="navbar">
     <div class="logo">
       <img src="@/assets/MQTTlogo.png" alt="logo"/>
@@ -17,17 +17,23 @@
         <icon-language :style="{fontSize:'20px'}" stroke-linecap="round" />
       </div>
       <div class="github">
-        <icon-github :style="{fontSize:'20px'}" stroke-linecap="round" />
+        <a class="githubWeb" href="https://github.com/" target="_blank">
+          <icon-github :style="{fontSize:'20px'}" stroke-linecap="round" />
+        </a>
       </div>
       <div class="pagemode">
         <icon-moon :style="{fontSize:'20px'}" stroke-linecap="round" />
       </div>
-      <div class="userInfo">
-        <icon-user :style="{fontSize:'20px'}" stroke-linecap="round" />
-      </div>
     </div>
+    <div class="userInfo">
+        <!-- <icon-user :style="{fontSize:'20px'}" stroke-linecap="round" /> -->
+        <a-avatar :size='40' :style="{ backgroundColor: '#00d0b6' }">
+          <!-- <img src="@/assets/MQTTlogo.png" alt="User"> -->
+          VQTT
+        </a-avatar>
+      </div>
   </div>
-</nav>
+</header>
 </template>
 
 
@@ -40,55 +46,72 @@
     font-family: 'Poppins', sans-serif;
   }
 
-  nav{
-    position: fixed;
+  header{
+    /* position: fixed; */
     top: 0;
     left: 0;
     height: 60px;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.1);
     /* background: red; */
-    border-bottom: solid 0.5px rgba(0, 0, 0, 0.3);
+    border-bottom: solid 1px #eaecef;
+    z-index: 20;
   }
 
-  nav .navbar{
+  header .navbar{
     height: 100%;
     max-width: 1900px;
     margin: auto;
     padding: 0px 15px 0px 25px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    box-sizing: border-box;
     /* background: green; */
   }
 
-  nav .navbar .logo{
+  header .navbar .logo{
     display: flex;
+    /* margin-right: 50px; */
   }
 
-  nav .navbar .logo img{
+  header .navbar .logo img{
     height: 32px;
     width: 32px;
   }
 
-  nav .navbar .logo p{
+  header .navbar .logo p{
+    display: flex;
     margin-left: 15px;
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 600;
     color: rgb(0, 82, 137);
+    /* text-align: center; */
+    align-items: center;
 
   }
 
-  nav .navbar .appearance{
-    margin-top: 10px;
+  header .navbar .appearance{
+    /* margin-top: 10px; */
     display: flex;
+    margin: 0px 0px 0px 1450px;
     /* background: red; */
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    vertical-align: middle;
     line-height: 50px;
   }
 
-  nav .navbar .appearance div{
-    margin: 0 10px;
+  header .navbar .appearance div{
+    margin: 10px 10px 0px;
   }
+
+  header .navbar .appearance .github .githubWeb{
+    color: black;
+    text-decoration: none;
+  }
+
+  header .navbar .userInfo{
+    margin-left: 15px;
+  }
+
 </style>
