@@ -33,6 +33,7 @@
             <li><i class='bx bxl-apple' ></i>iOS</li>
             <li><i class='bx bxl-android' ></i>Android</li>
             <li><i class='bx bxl-windows' ></i>Windows</li>
+            <li><i class='bx bxl-tux'></i>Linux</li>
           </ul>
         </li>
         <li>
