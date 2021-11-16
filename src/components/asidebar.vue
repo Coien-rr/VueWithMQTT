@@ -3,9 +3,9 @@
 
   // console.log("hello setup!");
   onMounted(() => {
-    console.log("hello Mounted!");
+    // console.log("hello Mounted!");
     const arrow = document.querySelectorAll('.arrow');
-    console.log(arrow);
+    // console.log(arrow);
     for(let i = 0; i < arrow.length; ++i){
       arrow[i].addEventListener("click", (e) => {
         let arrow = e.target.parentElement;
