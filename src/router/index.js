@@ -5,7 +5,7 @@ import DashBoard from '@/views/dashboard.vue';
 const routes = [
   {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/dashboard/config',
   },
 
   {
@@ -14,7 +14,17 @@ const routes = [
   },
   {
     path: '/dashboard',
-    component: DashBoard
+    component: DashBoard,
+    children: [
+      {
+        path: 'config',
+        component: () => import('../components/chart.vue')
+      },
+      {
+        path: 'data',
+        component: () => import('../components/data.vue')
+      }
+    ]
   }
 ];
 

@@ -1,9 +1,8 @@
 <script setup>
   import { onMounted } from "@vue/runtime-core";
-
-  // console.log("hello setup!");
-  onMounted(() => {
-    // console.log("hello Mounted!");
+  import router from "../router";
+  
+  function initSiderbar() {
     const arrow = document.querySelectorAll('.arrow');
     // console.log(arrow);
     for(let i = 0; i < arrow.length; ++i){
@@ -14,6 +13,28 @@
         console.log(arrow);
       })
     }
+  }
+
+  function addRouters() {
+    const dashboard = document.querySelector('.dashboard');
+    const data = document.querySelector('.data');
+    dashboard.addEventListener("click", (e) => {
+      router.replace({
+        path: '/dashboard/config',
+      })
+    })
+    data.addEventListener('click', (e) => {
+      router.replace({
+        path: '/dashboard/data',
+      })
+    })
+    console.log(dashboard);
+    console.log(data);
+  }
+
+  onMounted(() => {
+    initSiderbar();
+    addRouters();
   })
 </script>
 
@@ -21,7 +42,7 @@
   <aside class="siderbar">
     <div class="container">
       <ul class="nav-links">
-        <li>
+        <li class="dashboard">
           <i class='bx bxs-dashboard'></i>
           <span>控制面板</span>
         </li>
@@ -36,7 +57,7 @@
             <li><i class='bx bxl-tux'></i>Linux</li>
           </ul>
         </li>
-        <li>
+        <li class="data">
           <i class='bx bx-line-chart'></i>
           <span>数据分析</span>
         </li>

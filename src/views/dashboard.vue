@@ -2,7 +2,6 @@
   import Navbar from '@/components/navbar.vue';
   import Asidebar from '../components/asidebar.vue';
   import Content from '../components/content.vue';
-  import Chart from '../components/chart.vue';
 </script>
 
 <template>
@@ -10,7 +9,7 @@
     <Navbar/>
     <Asidebar/>
     <Content/>
-    <Chart/>
+    <router-view/>
   </div>
 </template>
 
