@@ -31,7 +31,8 @@ export const clientStore = defineStore('clients', {
           // console.log(this.ClientCopy(list[i]));
           this.clients.push(this.ClientCopy(list[i]));
         }
-        console.log(this.clients);
+        // console.log(this.clients);
+        console.log('End!');
       })
     }
   }
