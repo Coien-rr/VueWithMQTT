@@ -10,7 +10,7 @@
         let arrow = e.target.parentElement;
         // console.log(arrowParent);
         arrow.classList.toggle("showMenu");
-        console.log(arrow);
+        // console.log(arrow);
       })
     }
   }
@@ -28,8 +28,8 @@
         path: '/dashboard/data',
       })
     })
-    console.log(dashboard);
-    console.log(data);
+    // console.log(dashboard);
+    // console.log(data);
   }
 
   onMounted(() => {

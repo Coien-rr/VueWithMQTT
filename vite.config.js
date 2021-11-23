@@ -16,5 +16,13 @@ export default defineConfig({
     port: 4000,
     open: true,
     cors: true,
+    // proxy 解决响应EMQX服务器的跨域问题
+    proxy:{ 
+      '/mqtt': {
+        target: 'http://101.34.225.32:18083/api/v4',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/mqtt/, '')
+      }
+    }
   }
 })

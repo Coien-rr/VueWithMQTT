@@ -9,10 +9,10 @@
   dependencies:
     color "^3.1.3"
 
-"@arco-design/web-vue@^2.0.3":
-  version "2.0.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/@arco-design/web-vue/-/web-vue-2.0.3.tgz#dd768bcd3fed863560aaec4808fcaf35a838e4b8"
-  integrity sha512-dc96EMA9C1bxPCoLeZqk1SRMKoMAdtl2dxEgBpi+FCv5H+pd2U0VGeCD4eHU5myt5dHa8Yc2X7b6sBBmloLUxQ==
+"@arco-design/web-vue@^2.6.0":
+  version "2.6.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/@arco-design/web-vue/-/web-vue-2.6.0.tgz#171fd32fe4038ad6edc89acbebd9265d4a7c7696"
+  integrity sha512-wsffEGi1uo6sbaFblgYOswFyvh2bIfp0tB/tXiq8MoLuPuluU2XlZrq/hB9BTymtb0efLySeK53LgsWyliJbuA==
   dependencies:
     "@arco-design/color" "^0.4.0"
     b-tween "^0.3.3"
@@ -150,15 +150,22 @@
   resolved "https://repo.huaweicloud.com/repository/npm/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.6.0.tgz#7d1674c40bddf0c6dd974c44ffd34512fe7274ff"
   integrity sha512-Moog+Smx3ORTbWwuPqoclr+uvfLnciVd6wdCaVscHPrxbmQ/IJKm3wbB7hpzJtXWjAq2l/6QMlO85aZiOdtv5Q==
 
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+  dependencies:
+    follow-redirects "^1.14.4"
+
 b-tween@^0.3.3:
   version "0.3.3"
   resolved "https://repo.huaweicloud.com/repository/npm/b-tween/-/b-tween-0.3.3.tgz#7a93ed199c98cd41a33ba4c711a0fa7e86db3fa2"
   integrity sha512-oEHegcRpA7fAuc9KC4nktucuZn2aS8htymCPcP3qkEGPqiBH+GfqtqoG2l7LxHngg6O0HFM7hOeOYExl1Oz4ZA==
 
 b-validate@^1.2.3:
-  version "1.2.5"
-  resolved "https://repo.huaweicloud.com/repository/npm/b-validate/-/b-validate-1.2.5.tgz#9f521958df4a9607fc117b88a08fcebb53177850"
-  integrity sha512-1O7CPZcLbU+gP84qpmJ+mtHfaJf7p9um8uQnZU4UJXZF60tW50z+FUx8VdFZmZXGhJvjT0v7dMyW4HD9/hX4WA==
+  version "1.3.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/b-validate/-/b-validate-1.3.0.tgz#236041ccd61f217e68107cca9cc7e8aa69cabb46"
+  integrity sha512-1nNlVSyIAHbHN6pZhStbGwCfxAasYUDIgMW+BuUcML2T5lT1IoKVeax1jV0c/lHDiMy3FHkuKOzdBNA7eGKnWQ==
   dependencies:
     lodash.isequal "^4.5.0"
 
@@ -451,6 +458,11 @@ estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://repo.huaweicloud.com/repository/npm/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
+
+follow-redirects@^1.14.4:
+  version "1.14.5"
+  resolved "https://repo.huaweicloud.com/repository/npm/follow-redirects/-/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
+  integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
