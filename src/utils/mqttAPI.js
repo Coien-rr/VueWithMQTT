@@ -6,3 +6,10 @@ export function getClient(){
     method: 'get',
   });
 }
+
+export function disconnectClient(clientID){
+  return myAxios({
+    url:`/clients/${clientID}`,
+    method: 'delete',
+  })
+}
