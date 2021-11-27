@@ -24,7 +24,7 @@
     },
   ];
 
-  //TODO:refresh 通过设置store的loading来实时改变TableLoading
+  //TODO:refresh 通过设置store的loading来实时改变TableLoading DONE!
   async function reFresh(){
     return clientList.initClientList();
   }
@@ -38,13 +38,17 @@
   function disabled(client){
     return !client.connected;
   }
+
+  // function getColumns(){
+  //   console.log(columns);
+  // }
 </script>
 
 <template>
 	<main>
 		<!-- <h1>Hello Data</h1>
 		<a-space>
-			<a-button @click="clientList.initClientList()" type="primary">Get</a-button>
+			<a-button @click="getColumns()" type="primary">Get</a-button>
 		</a-space> -->
     <div class="ClientList" :style="{ display: 'flex' }">
       <a-card :style="{ width: '1080px' }" title="ClientList">
@@ -53,10 +57,8 @@
         </template>
         <a-table :data="clientList.clients" :pagination='true' :loading= clientList.loading>
           <template #columns>
-            <a-table-column title="ClientID" data-index="clientid"></a-table-column>
-            <a-table-column title="Connected" data-index="connected"></a-table-column>
-            <a-table-column title="Connected_At" data-index="connected_at"></a-table-column>
-            <a-table-column title="IP_Address" data-index="ip_address"></a-table-column>
+            //TODO: 使用v-for重构 DONE!
+            <a-table-column v-for="column in columns" :key="column.title" :title="column.title" :data-index="column.dataIndex"></a-table-column>
             <a-table-column title="Disconnect">
               <template #cell="{ record }">
                 <a-button class="disconnect" type="primary" status="danger" :disabled="disabled(record)" @click="disConnect(record)">DisConnect</a-button>
