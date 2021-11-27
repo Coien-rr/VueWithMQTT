@@ -18,8 +18,6 @@
 
 <style scoped>
   main{
-    left: 13rem;
-    position: fixed;
     /* background: rgb(201, 207, 212); */
     border-bottom: 1px solid #eaecef;
     height: 90px;

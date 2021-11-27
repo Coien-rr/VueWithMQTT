@@ -14,7 +14,8 @@ export const clientStore = defineStore('clients', {
         'clientid',
         'connected',
         'connected_at',
-        'ip_address'
+        'ip_address',
+        'subscriptions_cnt'
       ];
       const filtered = Object.keys(raw)
         .filter(key => allowed.includes(key))
@@ -30,9 +31,11 @@ export const clientStore = defineStore('clients', {
       this.clients = [],
       getClient().then((res) => {
         const list = res.data.data;
+        // console.log(list);
         for(let i = 0; i < list.length; ++i){
           this.clients.push(this.ClientCopy(list[i]));
         }
+        // console.log(this.clients);
         this.loading = false;
       })
     },

@@ -1,4 +1,5 @@
 <script setup>
+  import Content from '@/components/content.vue';
 	import { useConfigStore } from '../store/config';
 
 	const Config = useConfigStore();
@@ -17,6 +18,8 @@
 
 <template>
   <main>
+		<Content/>
+		//TODO: v-for重构代码
 		<div class="configuration" :style="{ display: 'flex' }">
 				<a-card :style="{ width: '100%' }" title="Configuration">
 					<a-space direction="inline" size="large">
@@ -129,12 +132,11 @@
 <style scoped>
   main{
     position: fixed;
-    top: 130px;
     left: 13rem;
-		padding: 20px;
   }
 	main .configuration {
-		margin-top: 30px;
+		margin-top: 100px;
+		padding: 20px;
 	} 
 
 	main .subscribe,
@@ -168,6 +170,10 @@
 		flex-wrap: wrap;
 		justify-content: space-around;
 		box-sizing: border-box;
+	}
+
+	main div{
+		border-radius: 10px;
 	}
 
 

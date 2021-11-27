@@ -13,3 +13,10 @@ export function disconnectClient(clientID){
     method: 'delete',
   })
 }
+
+export function getsubscription(){
+  return myAxios({
+    url:'/subscriptions',
+    method: 'get',
+  })
+}
