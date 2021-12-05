@@ -22,6 +22,11 @@ export default defineConfig({
         target: 'http://101.34.225.32:18083/api/v4',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/mqtt/, '')
+      },
+      '/qwf': {
+        target: 'https://qcyc5b.api.cloudendpoint.cn',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/qwf/, '')
       }
     }
   }

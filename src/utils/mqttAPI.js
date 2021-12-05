@@ -1,4 +1,4 @@
-import myAxios from "./http";
+import { myAxios } from "./http";
 
 export function getClient(){
   return myAxios({
