@@ -1,12 +1,15 @@
 <script setup>
+  // import "tailwindcss/tailwind.css"
   import { loginMqtt } from '../utils/qfwAPI';
   import { onMounted, reactive } from 'vue-demi';
   import { Message } from '@arco-design/web-vue';
   import router from '../router';
+  import Cookies from 'js-cookie';
+  
 
   onMounted ( () => {
-    const cookies = document.cookie.split(';');
-    console.log(cookies);
+    // const cookies = document.cookie.split(';');
+    // console.log(cookies);
   })
 
   const form = reactive({
@@ -14,28 +17,39 @@
     password:'123456'
   });
 
-  function loginTest() {
-
+  function loginLocal() {
+    if(Cookies.get(form.username)){
+      Message.success('Login Success!');
+    } else {
+      Message.error('Login Failed!');
+    }
   }
 
   function login(){
     console.log(form);
-    loginMqtt(form)
-      .then( res => {
-        console.log(res.data.result);
-        const result = res.data.result;
-        if(result){
-          Message.success('Login Success!');
-          setTimeout(() =>{
-            console.log(1);
-            router.replace({
-              path: '/dashboard',
-            })
-          },500)
-        } else {
-          Message.error('Login Failed!');
-        }
-      });
+    if(Cookies.get(form.username)){
+      Message.success('Login Success!');
+      console.log('Local!');
+    } else {
+      console.log("Cloud!");
+      loginMqtt(form)
+        .then( res => {
+          console.log(res.data.result);
+          const result = res.data.result;
+          if(result){
+            Message.success('Login Success!');
+            Cookies.set(form.username, true);
+            // setTimeout(() =>{
+            //   console.log(1);
+            //   router.replace({
+            //     path: '/dashboard',
+            //   })
+            // },500);
+          } else {
+            Message.error('Login Failed!');
+          }
+        });
+    }
   }
 
 </script>

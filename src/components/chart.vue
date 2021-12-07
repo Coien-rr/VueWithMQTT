@@ -19,7 +19,7 @@
 <template>
   <main>
 		<Content/>
-		//TODO: v-for重构代码
+		<!-- //TODO: v-for重构代码 -->
 		<div class="configuration" :style="{ display: 'flex' }">
 				<a-card :style="{ width: '100%' }" title="Configuration">
 					<a-space direction="inline" size="large">

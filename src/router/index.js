@@ -6,7 +6,7 @@ import Login from '@/views/login.vue';
 const routes = [
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/test',
   },
 
   {
@@ -17,6 +17,17 @@ const routes = [
   {
     path: '/login',
     component: Login,
+  },
+
+  {
+    path: '/test',
+    component: () => import('../views/Test.vue'),
+    children:[
+      {
+        path: 'login',
+        component: Login
+      }
+    ]
   },
 
   {
