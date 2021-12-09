@@ -43,16 +43,9 @@
     return !client.connected;
   }
 
-  // function getColumns(){
-  //   console.log(columns);
-  // }
 </script>
 
 <template>
-		<!-- <h1>Hello Data</h1>
-		<a-space>
-			<a-button @click="getColumns()" type="primary">Get</a-button>
-		</a-space> -->
     <div class="ClientList" :style="{ display: 'flex' }">
       <a-card class="Client" :style="{ width: '1080px' }" title="ClientList">
         <template #extra>

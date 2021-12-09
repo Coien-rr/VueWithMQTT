@@ -1,36 +1,48 @@
 <script setup>
-  import { ref } from 'vue-demi';
+  import { onMounted, ref } from 'vue-demi';
   import router from '../../router';
+  import { useRoute } from 'vue-router'
   import MenuItem from './MenuItem.vue';
   const isActive = ref(1);
+  const route = useRoute();
+  onMounted(() => {
+    console.log(route.path);
+    for(let i = 0; i < MenuList.length; ++i){
+      console.log(MenuList[i].itemPath);
+      if(route.path === MenuList[i].itemPath){
+        isActive.value = MenuList[i].id;
+        console.log(isActive.value);
+      }
+    }
+  });
   const MenuList = [
     {
       id: 1,
       itemName: '控制面板',
       icon: `<i class='bx bxs-dashboard'></i>`,
-      // isSelect: true
+      itemPath: '/dashboard/config',
     },
     {
       id:2,
       itemName: '数据面板',
       icon: `<i class='bx bx-line-chart'></i>`,
-      // isSelect: false
+      itemPath: '/dashboard/data',
     },
     {
       id:3,
       itemName: '订阅监控',
       icon: `<i class='bx bxs-analyse'></i>`,
-      // isSelect: false
+      itemPath: '/dashboard/monitor',
     }
   ];
 
   function listenItem(item){
     // console.log(item);
     isActive.value = item.id;
-    console.log(isActive.value);
+    console.log(item.itemPath);
     router.replace({
-      path: '/dashboard/data',
-    });
+      path: item.itemPath,
+    }).catch(()=>{});
   }
   
 </script>

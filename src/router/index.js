@@ -37,11 +37,15 @@ const routes = [
     children: [
       {
         path: 'config',
-        component: () => import('../components/chart.vue')
+        component: () => import('../components/Dashboard/chart.vue')
       },
       {
         path: 'data',
-        component: () => import('../components/data.vue')
+        component: () => import('../components/Dashboard/data.vue')
+      },
+      {
+        path: 'monitor',
+        component: () => import('../components/Dashboard/monitor.vue')
       }
     ]
   }

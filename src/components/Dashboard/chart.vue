@@ -1,6 +1,6 @@
 <script setup>
   import Content from '@/components/content.vue';
-	import { useConfigStore } from '../store/config';
+	import { useConfigStore } from '@/store/config';
 
 	const Config = useConfigStore();
 

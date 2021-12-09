@@ -5,9 +5,19 @@ import { disconnectClient } from "../utils/mqttAPI";
 export const clientStore = defineStore('clients', {
   state: () => ({
     clients: [],
-    loading: false
+    loading: false,
+    clientidlist:[]
   }),
-  getters: {},
+  getters: {
+    ClientIDList(){
+      const list = [];
+      console.log(this.clients.length);
+      for(let i = 0; i < this.clients.length; ++i){
+        // list.push(this.clients[i]);
+      }
+      console.log(list);
+    },
+  },
   actions: {
     ClientCopy(raw){
       const allowed = [
@@ -28,14 +38,15 @@ export const clientStore = defineStore('clients', {
 
     async initClientList(){
       this.loading = true;
-      this.clients = [],
+      this.clients = [];
+      this.clientidlist = [];
       getClient().then((res) => {
         const list = res.data.data;
-        // console.log(list);
         for(let i = 0; i < list.length; ++i){
           this.clients.push(this.ClientCopy(list[i]));
+          this.clientidlist.push(list[i].clientid);
         }
-        // console.log(this.clients);
+        console.log(this.clientidlist);
         this.loading = false;
       })
     },
