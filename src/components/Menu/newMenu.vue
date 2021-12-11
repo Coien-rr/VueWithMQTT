@@ -6,12 +6,9 @@
   const isActive = ref(1);
   const route = useRoute();
   onMounted(() => {
-    console.log(route.path);
     for(let i = 0; i < MenuList.length; ++i){
-      console.log(MenuList[i].itemPath);
       if(route.path === MenuList[i].itemPath){
         isActive.value = MenuList[i].id;
-        console.log(isActive.value);
       }
     }
   });
@@ -37,9 +34,7 @@
   ];
 
   function listenItem(item){
-    // console.log(item);
     isActive.value = item.id;
-    console.log(item.itemPath);
     router.replace({
       path: item.itemPath,
     }).catch(()=>{});

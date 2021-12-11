@@ -6,17 +6,17 @@ export const clientStore = defineStore('clients', {
   state: () => ({
     clients: [],
     loading: false,
-    clientidlist:[]
   }),
   getters: {
-    ClientIDList(){
-      const list = [];
-      console.log(this.clients.length);
+    getClientList(state){
+      let list = [];
       for(let i = 0; i < this.clients.length; ++i){
-        // list.push(this.clients[i]);
+        // console.log(this.clients[i].clientid);
+        list.push(this.clients[i].clientid);
+        // console.log(list);
       }
-      console.log(list);
-    },
+      return list;
+    }
   },
   actions: {
     ClientCopy(raw){
@@ -46,7 +46,8 @@ export const clientStore = defineStore('clients', {
           this.clients.push(this.ClientCopy(list[i]));
           this.clientidlist.push(list[i].clientid);
         }
-        console.log(this.clientidlist);
+        // console.log(this.clients);
+        // console.log(this.clients.length);
         this.loading = false;
       })
     },

@@ -1,16 +1,26 @@
 <script setup>
-  import { onMounted, ref } from 'vue';
+  import { onMounted, reactive, readonly, ref } from 'vue';
   import { clientStore } from '@/store/clientStore';
 
   const targetClient = ref('');
+
   const clientList = clientStore();
+  let clients = reactive([]);
+  
   onMounted(() => {
-    clientList.initClientList();
-    clientList.ClientIDList();
-    // console.log(clientList.clientidlist);
-    // clientList.clients;
-    // console.log(clientList.clients[0]);
+    clientList.initClientList();  
+    //TODO: 用promise改写getClientList的异步逻辑 再用async改写异步逻辑; 
+    setTimeout(() => {
+      get();
+    }, 500);
   });
+
+  function get(){
+    let list = clientList.getClientList;
+    for(let i = 0; i < list.length; ++i){
+      clients.push(list[i]);
+    }
+  }
 
 </script>
 
@@ -23,17 +33,14 @@
             <div class="target">
               <p>ClientMoniting!</p>
               <span>ClientID:   </span>
-              <!-- TODO: options -->
-              <a-select :style="{width:'260px'}" :options="clientList.clientlist" v-model="targetClient" placeholder="Please select Client ..." allow-search>
-                <!-- <a-option disabled>ClientList</a-option> -->
+              <!-- TODO: options DONE!-->
+              <!-- TODO: 选中后重新渲染页面显示新的数据 -->
+              <a-select :style="{width:'260px'}" v-model="targetClient" placeholder="Please select Client ..." allow-search>
+                <a-option disabled>Select clients!</a-option>
+                <a-option v-for="clientid in clients" :key="clientid">{{clientid}}</a-option>
               </a-select>
-              <!-- <select v-model="targetClient">
-                <option disabled value="">Please select one</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-              </select> -->
-              <!-- {{targetClient}} -->
+
+              <button @click="get()"><icon-refresh /></button>
             </div>
           </a-col>
           <a-col :span="16">
