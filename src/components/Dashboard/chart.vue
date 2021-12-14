@@ -23,7 +23,7 @@
 		<div class="configuration" :style="{ display: 'flex' }">
 				<a-card :style="{ width: '100%' }" title="Configuration">
 					<a-space direction="inline" size="large">
-						<a-form :model="form">
+						<a-form>
 							<a-row :gutter = "20">
 								<a-col :span = "8">
 									<a-form-item label="Host">

@@ -1,25 +1,19 @@
 <script setup>
   import { onMounted, reactive, readonly, ref } from 'vue';
   import { clientStore } from '@/store/clientStore';
+  import MsgList from '@/components/Monitor/msgList.vue';
+  import { useConfigStore } from '@/store/config';
 
-  const targetClient = ref('');
+  const targetTopic = ref('');
+  const monitorConfig = useConfigStore();
+  const topicList = reactive(["callsub","testtopic"]);
+  onMounted(() => {});
 
-  const clientList = clientStore();
-  let clients = reactive([]);
-  
-  onMounted(() => {
-    clientList.initClientList();  
-    //TODO: 用promise改写getClientList的异步逻辑 再用async改写异步逻辑; 
-    setTimeout(() => {
-      get();
-    }, 500);
-  });
-
-  function get(){
-    let list = clientList.getClientList;
-    for(let i = 0; i < list.length; ++i){
-      clients.push(list[i]);
-    }
+  function selectClient(){
+    console.log(targetTopic.value);
+    monitorConfig.initConfig(targetTopic.value);
+    monitorConfig.moniteClient();
+    // console.log(monitorConfig.subscription);
   }
 
 </script>
@@ -31,25 +25,20 @@
         <a-row class="Content">
           <a-col :span="8">
             <div class="target">
-              <p>ClientMoniting!</p>
-              <span>ClientID:   </span>
+              <p>TopicMoniting!</p>
+              <span>TopicID:   </span>
               <!-- TODO: options DONE!-->
               <!-- TODO: 选中后重新渲染页面显示新的数据 -->
-              <a-select :style="{width:'260px'}" v-model="targetClient" placeholder="Please select Client ..." allow-search>
-                <a-option disabled>Select clients!</a-option>
-                <a-option v-for="clientid in clients" :key="clientid">{{clientid}}</a-option>
+              <a-select :style="{width:'260px'}" v-model="targetTopic" placeholder="Please select Topic ..." @change="selectClient()" allow-search>
+                <a-option disabled>Select Topics!</a-option>
+                <a-option v-for="topic in topicList" :key="topic">{{topic}}</a-option>
               </a-select>
-
-              <button @click="get()"><icon-refresh /></button>
             </div>
           </a-col>
-          <a-col :span="16">
-            
-          </a-col>
-      </a-row>
+        </a-row>
       </a-space>
     </div>
-    <h1>Hello Monitor!</h1>
+    <MsgList></MsgList>
   </main>
 </template>
 

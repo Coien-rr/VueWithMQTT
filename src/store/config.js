@@ -1,5 +1,6 @@
 import { Message } from "@arco-design/web-vue";
 import { defineStore } from "pinia";
+import { useMsglistStore } from "./msglist";
 
 export const useConfigStore = defineStore('config', {
   state: () => ({
@@ -42,6 +43,14 @@ export const useConfigStore = defineStore('config', {
   },
 
   actions: {
+    initConfig(monitorTopic){
+      this.subscription.topic = monitorTopic;
+    },
+    moniteClient(){
+      this.destroyConnection();
+      this.createConnection();
+      this.doSubscribe();
+    },
     createConnection(){
       const { host, port, endpoint, ...options } = this.connection;
       const connectUrl = `ws://${host}:${port}${endpoint}`;
@@ -61,7 +70,10 @@ export const useConfigStore = defineStore('config', {
         this.receiveNews = this.receiveNews.concat(message);
         console.log(`Received message ${message} from topic ${topic}`);
         message = JSON.parse(message);
-        // console.log(message.msg)
+        message.topic = topic;
+        message.resTime = (new Date()).toLocaleString()
+        const msglist = useMsglistStore();
+        msglist.addMsgList(message);
         this.title = message.msg;
       })
     },
